@@ -61,4 +61,10 @@ Public Class frmLogin
             MessageBox.Show("An error occurred: " & ex.Message, "Error")
         End Try
     End Sub
+
+
+
+    Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
+        
+    End Sub
 End Class
