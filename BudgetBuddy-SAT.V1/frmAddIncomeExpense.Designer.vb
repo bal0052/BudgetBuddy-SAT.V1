@@ -173,7 +173,7 @@ Partial Class frmAddIncomeExpense
         Controls.Add(Label2)
         Controls.Add(Label1)
         Name = "frmAddIncomeExpense"
-        Text = "frmAddIncomeExpense"
+        Text = "Add Expenses & Income"
         ResumeLayout(False)
         PerformLayout()
     End Sub
