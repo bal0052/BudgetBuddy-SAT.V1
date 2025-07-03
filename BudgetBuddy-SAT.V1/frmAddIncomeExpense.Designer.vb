@@ -61,7 +61,7 @@ Partial Class frmAddIncomeExpense
         ' cmbType
         ' 
         cmbType.FormattingEnabled = True
-        cmbType.Items.AddRange(New Object() {"Income, Expense"})
+        cmbType.Items.AddRange(New Object() {"Income", "Expense"})
         cmbType.Location = New Point(101, 79)
         cmbType.Name = "cmbType"
         cmbType.Size = New Size(121, 23)
@@ -136,7 +136,7 @@ Partial Class frmAddIncomeExpense
         ' cmbCategory
         ' 
         cmbCategory.FormattingEnabled = True
-        cmbCategory.Items.AddRange(New Object() {"Salary, Food, Transport, Shopping, Bills, Other"})
+        cmbCategory.Items.AddRange(New Object() {"Salary", "Food", "Transport", "Shopping", "Bills", "Other"})
         cmbCategory.Location = New Point(134, 279)
         cmbCategory.Name = "cmbCategory"
         cmbCategory.Size = New Size(161, 23)
