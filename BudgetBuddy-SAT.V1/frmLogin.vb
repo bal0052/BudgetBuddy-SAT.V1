@@ -26,7 +26,16 @@ Imports System.IO
 
 Public Class frmLogin
 
-    ' When the user clicks on the Login button, this subroutine validates the user credentials and logs them in if correct.
+
+' Load saved email if Remember Me was used
+    Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If Not String.IsNullOrEmpty(My.Settings.SavedEmail) Then
+            txtLoginEmail.Text = My.Settings.SavedEmail
+            CheckBox1.Checked = True
+        End If
+    End Sub
+
+' When the user clicks on the Login button, this subroutine validates the user credentials and logs them in if correct.
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
     Dim enteredEmail As String = txtLoginEmail.Text.Trim().ToLower()
     Dim enteredPassword As String = txtLoginPassword.Text.Trim()
@@ -54,12 +63,21 @@ Public Class frmLogin
         End Using
 
         If loginSuccess Then
-            Me.Hide()
-            frmDashboard.Show()
-        Else
-            MsgBox("Incorrect email or password.", MsgBoxStyle.Exclamation)
-        End If
+                ' Save email if "Remember Me" is checked
+                If CheckBox1.Checked Then
+                    My.Settings.SavedEmail = enteredEmail
+                    My.Settings.Save()
+                Else
+                    My.Settings.SavedEmail = ""
+                    My.Settings.Save()
+                End If
+                Me.Hide() ' Hide the login form
+                frmDashboard.Show() ' Show the main dashboard form
+            Else
+                MsgBox("Incorrect email or password.", MsgBoxStyle.Exclamation)
+            End If
 
+            
     Catch ex As Exception
         MessageBox.Show("An error occurred: " & ex.Message, "Error")
     End Try
