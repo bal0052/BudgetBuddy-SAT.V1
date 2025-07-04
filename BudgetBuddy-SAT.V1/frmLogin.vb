@@ -26,6 +26,15 @@ Imports System.IO
 
 Public Class frmLogin
 
+
+    ' Load saved email if Remember Me was used
+    Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If Not String.IsNullOrEmpty(My.Settings.SavedEmail) Then
+            txtLoginEmail.Text = My.Settings.SavedEmail
+            CheckBox1.Checked = True
+        End If
+    End Sub
+
     ' When the user clicks on the Login button, this subroutine validates the user credentials and logs them in if correct.
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         Dim enteredEmail As String = txtLoginEmail.Text.Trim().ToLower()
