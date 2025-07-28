@@ -46,7 +46,8 @@ Public Class frmAddIncomeExpense
         Dim amount As Decimal = Convert.ToDecimal(amountText)
 
         ' Prepare CSV line: Date, Type, Category, Amount, Description
-        Dim line As String = $"{transactionDate},{transactionType},{category},{amount},{description}"
+        Dim safeDescription As String = Chr(34) & description.Replace(Chr(34), "'") & Chr(34)
+        Dim line As String = $"{transactionDate},{transactionType},{category},{amount},{safeDescription}"
 
         Try
             ' Save to Transactions.csv
@@ -62,6 +63,8 @@ Public Class frmAddIncomeExpense
             txtDescription.Clear()
             cmbCategory.SelectedIndex = -1
             dtpDate.Value = Date.Today
+            Me.Hide()
+            frmDashboard.Show()
 
         Catch ex As Exception
             MessageBox.Show("Error saving transaction: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

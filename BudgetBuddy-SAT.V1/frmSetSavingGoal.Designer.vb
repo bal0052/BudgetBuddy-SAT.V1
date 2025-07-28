@@ -161,7 +161,7 @@ Partial Class frmSetSavingGoal
         Controls.Add(Label2)
         Controls.Add(Label1)
         Name = "frmSetSavingGoal"
-        Text = "frmSetSavingGoal"
+        Text = "Set Saving Goal"
         ResumeLayout(False)
         PerformLayout()
     End Sub

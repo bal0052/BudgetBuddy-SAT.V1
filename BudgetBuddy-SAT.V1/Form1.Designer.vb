@@ -164,9 +164,9 @@ Partial Class frmDashboard
         lblGreetUser.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblGreetUser.Location = New Point(51, 32)
         lblGreetUser.Name = "lblGreetUser"
-        lblGreetUser.Size = New Size(124, 30)
+        lblGreetUser.Size = New Size(71, 30)
         lblGreetUser.TabIndex = 6
-        lblGreetUser.Text = "Hello, Greg"
+        lblGreetUser.Text = "Hello,"
         ' 
         ' Label3
         ' 
