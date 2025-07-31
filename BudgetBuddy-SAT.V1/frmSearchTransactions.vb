@@ -1,112 +1,93 @@
 ﻿'----------------------------------------------------------
 ' File:          frmSearchTransactions.vb
 ' Project:       BudgetBuddy
-' Description:   Handles the form where users can search and filter 
-'                transactions based on description, date range, 
-'                transaction type, and category.
+' Description:   Handles searching of transactions stored in
+'                "Transactions.csv" using filters such as 
+'                description, date range, type, and category.
 ' Author:        Nayan
 ' Date Created:  30/07/2025
 ' Version:       1.0
 '
 ' Purpose:
-'   Allows users to search for transactions stored in 
-'   "Transactions.csv" and display matching results in 
-'   a DataGridView.
+'   Allows users to search existing transactions stored in a CSV 
+'   file, apply multiple filters, and view the results in a 
+'   DataGridView.
 '
 ' Notes:
-'   - Assumes the CSV file is in the format:
-'       Date, Type, Category, Amount, Description
-'   - Supports partial matches in description.
-'   - CSV parsing handles quoted descriptions with commas.
+'   - Reads CSV file using TextFieldParser to handle quoted 
+'     descriptions with commas.
+'   - Assumes CSV format: Date,Type,Category,Amount,Description
+'   - Filters are optional; leaving them blank includes all results.
 '
 '----------------------------------------------------------
 
-
-
-Imports System.Globalization
 Imports System.IO
+Imports Microsoft.VisualBasic.FileIO
+
 Public Class frmSearchTransactions
-    ' Handles the form load event to initialize filters and date pickers.
-    Private Sub frmSearchTransactions_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-
-        ' Load default filter values and populate combo boxes
-        cmbTypeFilter.Items.Clear()
-        cmbTypeFilter.Items.AddRange({"All", "Inco me", "Expense"})
-        cmbTypeFilter.SelectedIndex = 0
-
-        cmbCategoryFilter.Items.Clear()
-        cmbCategoryFilter.Items.AddRange({"All", "Salary", "Food", "Transport", "Shopping", "Bills", "Other"})
-        cmbCategoryFilter.SelectedIndex = 0
-
-        ' Set date pickers to the last month
-        dtpFromDate.Value = Date.Today.AddMonths(-1)
-        dtpToDate.Value = Date.Today
-    End Sub
-
-    ' Handles the Search button click, validates inputs, and searches the CSV file for matching transactions.
+    '----------------------------------------------------------
+    ' Subroutine: btnSearch_Click
+    ' Description:
+    '   Triggered when the Search button is clicked. 
+    '   Loads transactions from "Transactions.csv", applies 
+    '   filters, and displays matching results in dgvResults.
+    '
+    ' Parameters:
+    '   sender - Object that triggered the event
+    '   e      - Event arguments
+    '
+    ' Notes:
+    '   - Clears previous results before displaying new ones
+    '   - Skips invalid lines or incorrectly formatted data
+    '----------------------------------------------------------
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        ' Clear existing results
         dgvResults.Rows.Clear()
 
-        Dim fromDate As Date = dtpFromDate.Value.Date
-        Dim toDate As Date = dtpToDate.Value.Date
-        Dim descFilter As String = txtSearchDescription.Text.Trim().ToLower()
-        Dim typeFilter As String = cmbTypeFilter.SelectedItem.ToString()
-        Dim categoryFilter As String = cmbCategoryFilter.SelectedItem.ToString()
-
-        ' Exit if file does not exist
-        If Not File.Exists("Transactions.csv") Then
-            MessageBox.Show("No transactions file found.", "File Missing", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        ' CSV file path
+        Dim filePath As String = "Transactions.csv"
+        If Not File.Exists(filePath) Then
+            MessageBox.Show("Transaction file not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
 
-        Dim lines As String() = File.ReadAllLines("Transactions.csv")
+        ' Get filter values
+        Dim searchDesc As String = txtSearchDescription.Text.Trim().ToLower()
+        Dim fromDate As Date = dtpFromDate.Value.Date
+        Dim toDate As Date = dtpToDate.Value.Date
+        Dim typeFilter As String = cmbTypeFilter.Text
+        Dim categoryFilter As String = cmbCategoryFilter.Text
 
-        ' Loop through each line in the CSV file
-        For Each line As String In lines
-            Dim fields As List(Of String) = ParseCsvLine(line)
-            If fields.Count < 5 Then Continue For ' Skip invalid rows
+        ' Read CSV with TextFieldParser (handles quotes & commas in description)
+        Using parser As New TextFieldParser(filePath)
+            parser.TextFieldType = FieldType.Delimited
+            parser.SetDelimiters(",")
+            parser.HasFieldsEnclosedInQuotes = True
 
-            ' Fields: Date, Type, Category, Amount, Description
-            Dim transDate As Date
-            If Not Date.TryParseExact(fields(0), "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, transDate) Then Continue For
+            While Not parser.EndOfData
+                Dim fields As String() = parser.ReadFields()
+                If fields.Length < 5 Then Continue While
 
-            Dim transType As String = fields(1).Trim()
-            Dim transCategory As String = fields(2).Trim()
-            Dim transAmount As String = fields(3).Trim()
-            Dim transDescription As String = fields(4).Trim().ToLower()
+                ' Parse date
+                Dim transDate As Date
+                If Not Date.TryParseExact(fields(0), "dd/MM/yyyy", Nothing, Globalization.DateTimeStyles.None, transDate) Then Continue While
 
-            ' Apply all selected filters
-            If transDate < fromDate OrElse transDate > toDate Then Continue For
-            If typeFilter <> "All" AndAlso transType <> typeFilter Then Continue For
-            If categoryFilter <> "All" AndAlso transCategory <> categoryFilter Then Continue For
-            If Not transDescription.Contains(descFilter) Then Continue For
+                Dim transType As String = fields(1).Trim()
+                Dim transCategory As String = fields(2).Trim()
+                Dim transAmount As String = fields(3).Trim()
+                Dim transDescription As String = fields(4).Trim()
 
-            ' Add matching transaction to the DataGridView
-            dgvResults.Rows.Add(fields(4), transAmount, transType, fields(0), transCategory)
-        Next
+                ' Apply filters
+                If Not String.IsNullOrWhiteSpace(searchDesc) AndAlso Not transDescription.ToLower().Contains(searchDesc) Then Continue While
+                If transDate < fromDate Or transDate > toDate Then Continue While
+                If typeFilter <> "All" AndAlso transType <> typeFilter Then Continue While
+                If categoryFilter <> "All" AndAlso transCategory <> categoryFilter Then Continue While
+
+                ' Add matching row to DataGridView
+                dgvResults.Rows.Add(transDescription, transAmount, transType, transDate.ToString("dd/MM/yyyy"), transCategory)
+            End While
+        End Using
     End Sub
 
-    ' Safely parse a CSV line with support for quoted values
-    Private Function ParseCsvLine(line As String) As List(Of String)
-        Dim result As New List(Of String)
-        Dim inQuotes As Boolean = False
-        Dim currentField As String = ""
-
-        For i As Integer = 0 To line.Length - 1
-            Dim ch As Char = line(i)
-
-            If ch = """"c Then
-                inQuotes = Not inQuotes
-            ElseIf ch = ","c AndAlso Not inQuotes Then
-                result.Add(currentField)
-                currentField = ""
-            Else
-                currentField &= ch
-            End If
-        Next
-
-        result.Add(currentField)
-        Return result
-    End Function
 End Class
