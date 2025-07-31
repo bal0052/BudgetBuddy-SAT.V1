@@ -62,8 +62,6 @@ Public Class frmAddIncomeExpense
             txtDescription.Clear()
             cmbCategory.SelectedIndex = -1
             dtpDate.Value = Date.Today
-            Me.Hide()
-            frmDashboard.Show()
 
         Catch ex As Exception
             MessageBox.Show("Error saving transaction: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
