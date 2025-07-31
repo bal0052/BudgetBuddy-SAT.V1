@@ -22,10 +22,9 @@ Imports System.IO
 
 
 
-
-
 ' When the user clicks Save, validate inputs and write the transaction to the CSV file.
 Public Class frmAddIncomeExpense
+    ' Handles the form load event to initialize combo boxes and date picker.
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Dim transactionType As String = cmbType.SelectedItem?.ToString()
         Dim amountText As String = txtAmount.Text.Trim()

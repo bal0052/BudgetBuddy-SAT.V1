@@ -8,4 +8,9 @@
     Private Sub frmDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lblGreetUser.Text = "Hello, " & Session.LoggedInName
     End Sub
+
+    Private Sub btnSearchTransactions_Click(sender As Object, e As EventArgs) Handles btnSearchTransactions.Click
+        Me.Hide()
+        frmSearchTransactions.Show()  'This will hide the dashboard form and show the Search Transactions form when the button is clicked.
+    End Sub
 End Class
