@@ -31,6 +31,7 @@ Partial Class frmDashboard
         btnAddIncandExp = New Button()
         lblLogo = New Label()
         pnlDashboard = New Panel()
+        lstAlerts = New ListBox()
         lblGreetUser = New Label()
         Label3 = New Label()
         Label2 = New Label()
@@ -146,6 +147,7 @@ Partial Class frmDashboard
         ' pnlDashboard
         ' 
         pnlDashboard.BackColor = Color.WhiteSmoke
+        pnlDashboard.Controls.Add(lstAlerts)
         pnlDashboard.Controls.Add(lblGreetUser)
         pnlDashboard.Controls.Add(Label3)
         pnlDashboard.Controls.Add(Label2)
@@ -157,6 +159,15 @@ Partial Class frmDashboard
         pnlDashboard.Name = "pnlDashboard"
         pnlDashboard.Size = New Size(600, 450)
         pnlDashboard.TabIndex = 3
+        ' 
+        ' lstAlerts
+        ' 
+        lstAlerts.FormattingEnabled = True
+        lstAlerts.ItemHeight = 15
+        lstAlerts.Location = New Point(93, 320)
+        lstAlerts.Name = "lstAlerts"
+        lstAlerts.Size = New Size(348, 94)
+        lstAlerts.TabIndex = 7
         ' 
         ' lblGreetUser
         ' 
@@ -268,5 +279,6 @@ Partial Class frmDashboard
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents lblGreetUser As Label
+    Friend WithEvents lstAlerts As ListBox
 
 End Class
