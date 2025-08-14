@@ -22,7 +22,14 @@
 '----------------------------------------------------------
 
 
+Imports System.Collections.Specialized.BitVector32
 Imports System.IO
+
+Public Module Session
+    Public LoggedInEmail As String
+    Public LoggedInName As String
+End Module
+
 
 Public Class frmLogin
 
@@ -37,25 +44,34 @@ Public Class frmLogin
 
     ' When the user clicks on the Login button, this subroutine validates the user credentials and logs them in if correct.
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
+        ' Trim and normalize user input
         Dim enteredEmail As String = txtLoginEmail.Text.Trim().ToLower()
         Dim enteredPassword As String = txtLoginPassword.Text.Trim()
         Dim loginSuccess As Boolean = False
+        Dim loggedInName As String = ""
 
         Try
+            ' Check if the CSV file exists
             If Not File.Exists("CustomerDetails.csv") Then
-                MessageBox.Show("CustomerDetails.csv not found in Debug folder.")
+                MessageBox.Show("CustomerDetails.csv not found.")
                 Exit Sub
             End If
 
+            ' Read the file line by line
             Using loginFile As New StreamReader("CustomerDetails.csv")
                 Do While loginFile.Peek() <> -1
                     Dim lineData() As String = loginFile.ReadLine().Split(","c)
-                    If lineData.Length = 3 Then ' Name, Email, Password
-                        Dim csvEmail As String = lineData(1).Trim().ToLower()
-                        Dim csvPassword As String = lineData(2).Trim()
 
-                        If enteredEmail = csvEmail AndAlso enteredPassword = csvPassword Then
+                    ' Expecting each line to have Name, Email, Password
+                    If lineData.Length = 3 Then
+                        Dim name As String = lineData(0).Trim()
+                        Dim email As String = lineData(1).Trim().ToLower()
+                        Dim password As String = lineData(2).Trim()
+
+                        ' Check if credentials match
+                        If enteredEmail = email AndAlso enteredPassword = password Then
                             loginSuccess = True
+                            loggedInName = name ' Store matched name
                             Exit Do
                         End If
                     End If
@@ -63,13 +79,28 @@ Public Class frmLogin
             End Using
 
             If loginSuccess Then
+                ' Save session info for use in other forms
+                Session.LoggedInEmail = enteredEmail
+                Session.LoggedInName = loggedInName
+
+                ' Handle Remember Me setting
+                If CheckBox1.Checked Then
+                    My.Settings.SavedEmail = enteredEmail
+                Else
+                    My.Settings.SavedEmail = ""
+                End If
+                My.Settings.Save()
+
+                ' Navigate to dashboard
                 Me.Hide()
                 frmDashboard.Show()
             Else
+                ' Show error if login failed
                 MsgBox("Incorrect email or password.", MsgBoxStyle.Exclamation)
             End If
 
         Catch ex As Exception
+            ' Generic error handler
             MessageBox.Show("An error occurred: " & ex.Message, "Error")
         End Try
     End Sub

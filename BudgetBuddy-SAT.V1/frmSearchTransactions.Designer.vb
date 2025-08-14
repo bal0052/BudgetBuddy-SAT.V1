@@ -40,6 +40,7 @@ Partial Class frmSearchTransactions
         Type = New DataGridViewTextBoxColumn()
         Time = New DataGridViewTextBoxColumn()
         Category = New DataGridViewTextBoxColumn()
+        btnBackToDash = New Button()
         CType(dgvResults, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -122,7 +123,7 @@ Partial Class frmSearchTransactions
         ' cmbTypeFilter
         ' 
         cmbTypeFilter.FormattingEnabled = True
-        cmbTypeFilter.Items.AddRange(New Object() {"All, Income, Expense"})
+        cmbTypeFilter.Items.AddRange(New Object() {"Income", "Expense"})
         cmbTypeFilter.Location = New Point(81, 197)
         cmbTypeFilter.Name = "cmbTypeFilter"
         cmbTypeFilter.Size = New Size(168, 23)
@@ -131,7 +132,7 @@ Partial Class frmSearchTransactions
         ' cmbCategoryFilter
         ' 
         cmbCategoryFilter.FormattingEnabled = True
-        cmbCategoryFilter.Items.AddRange(New Object() {"All, Salary, Food, Transport, Shopping, Bills, Other"})
+        cmbCategoryFilter.Items.AddRange(New Object() {"All", "Salary", "Food", "Transport", "Shopping", "Bills", "Other"})
         cmbCategoryFilter.Location = New Point(128, 237)
         cmbCategoryFilter.Name = "cmbCategoryFilter"
         cmbCategoryFilter.Size = New Size(168, 23)
@@ -195,11 +196,25 @@ Partial Class frmSearchTransactions
         Category.HeaderText = "Category"
         Category.Name = "Category"
         ' 
+        ' btnBackToDash
+        ' 
+        btnBackToDash.BackColor = Color.FromArgb(CByte(93), CByte(111), CByte(204))
+        btnBackToDash.FlatStyle = FlatStyle.Flat
+        btnBackToDash.Font = New Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnBackToDash.ForeColor = Color.White
+        btnBackToDash.Location = New Point(549, 12)
+        btnBackToDash.Name = "btnBackToDash"
+        btnBackToDash.Size = New Size(239, 75)
+        btnBackToDash.TabIndex = 13
+        btnBackToDash.Text = "Back to Dashboard"
+        btnBackToDash.UseVisualStyleBackColor = False
+        ' 
         ' frmSearchTransactions
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
+        Controls.Add(btnBackToDash)
         Controls.Add(dgvResults)
         Controls.Add(btnSearch)
         Controls.Add(cmbCategoryFilter)
@@ -237,4 +252,5 @@ Partial Class frmSearchTransactions
     Friend WithEvents Type As DataGridViewTextBoxColumn
     Friend WithEvents Time As DataGridViewTextBoxColumn
     Friend WithEvents Category As DataGridViewTextBoxColumn
+    Friend WithEvents btnBackToDash As Button
 End Class

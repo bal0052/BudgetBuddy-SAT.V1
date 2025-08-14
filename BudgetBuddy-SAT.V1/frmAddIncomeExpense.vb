@@ -22,10 +22,9 @@ Imports System.IO
 
 
 
-
-
 ' When the user clicks Save, validate inputs and write the transaction to the CSV file.
 Public Class frmAddIncomeExpense
+    ' Handles the form load event to initialize combo boxes and date picker.
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Dim transactionType As String = cmbType.SelectedItem?.ToString()
         Dim amountText As String = txtAmount.Text.Trim()
@@ -46,7 +45,8 @@ Public Class frmAddIncomeExpense
         Dim amount As Decimal = Convert.ToDecimal(amountText)
 
         ' Prepare CSV line: Date, Type, Category, Amount, Description
-        Dim line As String = $"{transactionDate},{transactionType},{category},{amount},{description}"
+        Dim safeDescription As String = Chr(34) & description.Replace(Chr(34), "'") & Chr(34)
+        Dim line As String = $"{transactionDate},{transactionType},{category},{amount},{safeDescription}"
 
         Try
             ' Save to Transactions.csv
@@ -63,7 +63,7 @@ Public Class frmAddIncomeExpense
             cmbCategory.SelectedIndex = -1
             dtpDate.Value = Date.Today
             Me.Hide()
-            frmDashboard.Show() ' Show the dashboard after saving
+            frmDashboard.Show()  ' Return to the dashboard after saving
 
         Catch ex As Exception
             MessageBox.Show("Error saving transaction: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
