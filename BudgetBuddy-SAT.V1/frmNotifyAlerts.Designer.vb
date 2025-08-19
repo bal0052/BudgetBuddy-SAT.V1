@@ -34,9 +34,10 @@ Partial Class frmNotifyAlerts
         ' 
         lblTitle.AutoSize = True
         lblTitle.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        lblTitle.Location = New Point(20, 20)
+        lblTitle.Location = New Point(37, 43)
+        lblTitle.Margin = New Padding(6, 0, 6, 0)
         lblTitle.Name = "lblTitle"
-        lblTitle.Size = New Size(234, 30)
+        lblTitle.Size = New Size(469, 57)
         lblTitle.TabIndex = 0
         lblTitle.Text = "Set Alert for Spending"
         ' 
@@ -44,9 +45,10 @@ Partial Class frmNotifyAlerts
         ' 
         lblLimit.AutoSize = True
         lblLimit.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        lblLimit.Location = New Point(20, 144)
+        lblLimit.Location = New Point(15, 305)
+        lblLimit.Margin = New Padding(6, 0, 6, 0)
         lblLimit.Name = "lblLimit"
-        lblLimit.Size = New Size(190, 30)
+        lblLimit.Size = New Size(375, 57)
         lblLimit.TabIndex = 1
         lblLimit.Text = "Limit Amount ($):"
         ' 
@@ -54,49 +56,54 @@ Partial Class frmNotifyAlerts
         ' 
         lblCategory.AutoSize = True
         lblCategory.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        lblCategory.Location = New Point(20, 80)
+        lblCategory.Location = New Point(37, 171)
+        lblCategory.Margin = New Padding(6, 0, 6, 0)
         lblCategory.Name = "lblCategory"
-        lblCategory.Size = New Size(108, 30)
+        lblCategory.Size = New Size(218, 57)
         lblCategory.TabIndex = 2
         lblCategory.Text = "Category:"
         ' 
         ' cmbCategory
         ' 
         cmbCategory.FormattingEnabled = True
-        cmbCategory.Items.AddRange(New Object() {"Food"", ""Transport"", ""Bills"", ""Shopping"", ""Other"})
-        cmbCategory.Location = New Point(134, 89)
+        cmbCategory.Items.AddRange(New Object() {"Food", "Transport", "Bills", "Shopping", "Other"})
+        cmbCategory.Location = New Point(249, 190)
+        cmbCategory.Margin = New Padding(6, 6, 6, 6)
         cmbCategory.Name = "cmbCategory"
-        cmbCategory.Size = New Size(121, 23)
+        cmbCategory.Size = New Size(221, 40)
         cmbCategory.TabIndex = 3
         ' 
         ' txtLimitAmount
         ' 
-        txtLimitAmount.Location = New Point(216, 151)
+        txtLimitAmount.Location = New Point(401, 322)
+        txtLimitAmount.Margin = New Padding(6, 6, 6, 6)
         txtLimitAmount.Name = "txtLimitAmount"
-        txtLimitAmount.Size = New Size(100, 23)
+        txtLimitAmount.Size = New Size(182, 39)
         txtLimitAmount.TabIndex = 4
         ' 
         ' btnSaveAlert
         ' 
         btnSaveAlert.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnSaveAlert.Location = New Point(48, 217)
+        btnSaveAlert.Location = New Point(89, 463)
+        btnSaveAlert.Margin = New Padding(6, 6, 6, 6)
         btnSaveAlert.Name = "btnSaveAlert"
-        btnSaveAlert.Size = New Size(162, 43)
+        btnSaveAlert.Size = New Size(301, 92)
         btnSaveAlert.TabIndex = 5
         btnSaveAlert.Text = "Set Alert"
         btnSaveAlert.UseVisualStyleBackColor = True
         ' 
         ' frmNotifyAlerts
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(13F, 32F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(343, 318)
+        ClientSize = New Size(637, 678)
         Controls.Add(btnSaveAlert)
         Controls.Add(txtLimitAmount)
         Controls.Add(cmbCategory)
         Controls.Add(lblCategory)
         Controls.Add(lblLimit)
         Controls.Add(lblTitle)
+        Margin = New Padding(6, 6, 6, 6)
         Name = "frmNotifyAlerts"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Notify Alerts"

@@ -41,6 +41,7 @@ Partial Class frmSearchTransactions
         Time = New DataGridViewTextBoxColumn()
         Category = New DataGridViewTextBoxColumn()
         btnBackToDash = New Button()
+        Label7 = New Label()
         CType(dgvResults, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -49,9 +50,10 @@ Partial Class frmSearchTransactions
         Label1.AutoSize = True
         Label1.Font = New Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = Color.FromArgb(CByte(93), CByte(111), CByte(204))
-        Label1.Location = New Point(20, 20)
+        Label1.Location = New Point(37, 43)
+        Label1.Margin = New Padding(6, 0, 6, 0)
         Label1.Name = "Label1"
-        Label1.Size = New Size(239, 32)
+        Label1.Size = New Size(471, 65)
         Label1.TabIndex = 0
         Label1.Text = "Search Transactions"
         ' 
@@ -60,17 +62,19 @@ Partial Class frmSearchTransactions
         Label2.AutoSize = True
         Label2.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label2.ForeColor = Color.FromArgb(CByte(93), CByte(111), CByte(204))
-        Label2.Location = New Point(20, 70)
+        Label2.Location = New Point(37, 149)
+        Label2.Margin = New Padding(6, 0, 6, 0)
         Label2.Name = "Label2"
-        Label2.Size = New Size(131, 30)
+        Label2.Size = New Size(262, 57)
         Label2.TabIndex = 1
         Label2.Text = "Description:"
         ' 
         ' txtSearchDescription
         ' 
-        txtSearchDescription.Location = New Point(147, 77)
+        txtSearchDescription.Location = New Point(297, 166)
+        txtSearchDescription.Margin = New Padding(6, 6, 6, 6)
         txtSearchDescription.Name = "txtSearchDescription"
-        txtSearchDescription.Size = New Size(146, 23)
+        txtSearchDescription.Size = New Size(268, 39)
         txtSearchDescription.TabIndex = 2
         ' 
         ' Label3
@@ -78,17 +82,19 @@ Partial Class frmSearchTransactions
         Label3.AutoSize = True
         Label3.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label3.ForeColor = Color.FromArgb(CByte(93), CByte(111), CByte(204))
-        Label3.Location = New Point(20, 110)
+        Label3.Location = New Point(37, 235)
+        Label3.Margin = New Padding(6, 0, 6, 0)
         Label3.Name = "Label3"
-        Label3.Size = New Size(70, 30)
+        Label3.Size = New Size(139, 57)
         Label3.TabIndex = 3
         Label3.Text = "From:"
         ' 
         ' dtpFromDate
         ' 
-        dtpFromDate.Location = New Point(96, 117)
+        dtpFromDate.Location = New Point(178, 250)
+        dtpFromDate.Margin = New Padding(6, 6, 6, 6)
         dtpFromDate.Name = "dtpFromDate"
-        dtpFromDate.Size = New Size(200, 23)
+        dtpFromDate.Size = New Size(368, 39)
         dtpFromDate.TabIndex = 4
         ' 
         ' Label4
@@ -96,17 +102,19 @@ Partial Class frmSearchTransactions
         Label4.AutoSize = True
         Label4.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label4.ForeColor = Color.FromArgb(CByte(93), CByte(111), CByte(204))
-        Label4.Location = New Point(20, 150)
+        Label4.Location = New Point(37, 320)
+        Label4.Margin = New Padding(6, 0, 6, 0)
         Label4.Name = "Label4"
-        Label4.Size = New Size(42, 30)
+        Label4.Size = New Size(83, 57)
         Label4.TabIndex = 5
         Label4.Text = "To:"
         ' 
         ' dtpToDate
         ' 
-        dtpToDate.Location = New Point(68, 157)
+        dtpToDate.Location = New Point(126, 335)
+        dtpToDate.Margin = New Padding(6, 6, 6, 6)
         dtpToDate.Name = "dtpToDate"
-        dtpToDate.Size = New Size(200, 23)
+        dtpToDate.Size = New Size(368, 39)
         dtpToDate.TabIndex = 6
         ' 
         ' Label5
@@ -114,9 +122,10 @@ Partial Class frmSearchTransactions
         Label5.AutoSize = True
         Label5.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label5.ForeColor = Color.FromArgb(CByte(93), CByte(111), CByte(204))
-        Label5.Location = New Point(20, 190)
+        Label5.Location = New Point(37, 405)
+        Label5.Margin = New Padding(6, 0, 6, 0)
         Label5.Name = "Label5"
-        Label5.Size = New Size(65, 30)
+        Label5.Size = New Size(131, 57)
         Label5.TabIndex = 7
         Label5.Text = "Type:"
         ' 
@@ -124,18 +133,20 @@ Partial Class frmSearchTransactions
         ' 
         cmbTypeFilter.FormattingEnabled = True
         cmbTypeFilter.Items.AddRange(New Object() {"Income", "Expense"})
-        cmbTypeFilter.Location = New Point(81, 197)
+        cmbTypeFilter.Location = New Point(167, 422)
+        cmbTypeFilter.Margin = New Padding(6, 6, 6, 6)
         cmbTypeFilter.Name = "cmbTypeFilter"
-        cmbTypeFilter.Size = New Size(168, 23)
+        cmbTypeFilter.Size = New Size(309, 40)
         cmbTypeFilter.TabIndex = 8
         ' 
         ' cmbCategoryFilter
         ' 
         cmbCategoryFilter.FormattingEnabled = True
         cmbCategoryFilter.Items.AddRange(New Object() {"All", "Salary", "Food", "Transport", "Shopping", "Bills", "Other"})
-        cmbCategoryFilter.Location = New Point(128, 237)
+        cmbCategoryFilter.Location = New Point(256, 508)
+        cmbCategoryFilter.Margin = New Padding(6, 6, 6, 6)
         cmbCategoryFilter.Name = "cmbCategoryFilter"
-        cmbCategoryFilter.Size = New Size(168, 23)
+        cmbCategoryFilter.Size = New Size(309, 40)
         cmbCategoryFilter.TabIndex = 10
         ' 
         ' Label6
@@ -143,9 +154,10 @@ Partial Class frmSearchTransactions
         Label6.AutoSize = True
         Label6.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label6.ForeColor = Color.FromArgb(CByte(93), CByte(111), CByte(204))
-        Label6.Location = New Point(20, 230)
+        Label6.Location = New Point(37, 491)
+        Label6.Margin = New Padding(6, 0, 6, 0)
         Label6.Name = "Label6"
-        Label6.Size = New Size(108, 30)
+        Label6.Size = New Size(218, 57)
         Label6.TabIndex = 9
         Label6.Text = "Category:"
         ' 
@@ -155,9 +167,10 @@ Partial Class frmSearchTransactions
         btnSearch.FlatStyle = FlatStyle.Flat
         btnSearch.Font = New Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnSearch.ForeColor = Color.White
-        btnSearch.Location = New Point(68, 282)
+        btnSearch.Location = New Point(126, 602)
+        btnSearch.Margin = New Padding(6, 6, 6, 6)
         btnSearch.Name = "btnSearch"
-        btnSearch.Size = New Size(200, 60)
+        btnSearch.Size = New Size(371, 128)
         btnSearch.TabIndex = 11
         btnSearch.Text = "Search"
         btnSearch.UseVisualStyleBackColor = False
@@ -166,35 +179,47 @@ Partial Class frmSearchTransactions
         ' 
         dgvResults.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         dgvResults.Columns.AddRange(New DataGridViewColumn() {Description, Amount, Type, Time, Category})
-        dgvResults.Location = New Point(68, 377)
+        dgvResults.Location = New Point(379, 804)
+        dgvResults.Margin = New Padding(6, 6, 6, 6)
         dgvResults.Name = "dgvResults"
-        dgvResults.Size = New Size(547, 61)
+        dgvResults.RowHeadersWidth = 82
+        dgvResults.Size = New Size(1016, 130)
         dgvResults.TabIndex = 12
         ' 
         ' Description
         ' 
         Description.HeaderText = "Description"
+        Description.MinimumWidth = 10
         Description.Name = "Description"
+        Description.Width = 200
         ' 
         ' Amount
         ' 
         Amount.HeaderText = "Amount"
+        Amount.MinimumWidth = 10
         Amount.Name = "Amount"
+        Amount.Width = 200
         ' 
         ' Type
         ' 
         Type.HeaderText = "Type"
+        Type.MinimumWidth = 10
         Type.Name = "Type"
+        Type.Width = 200
         ' 
         ' Time
         ' 
         Time.HeaderText = "Time"
+        Time.MinimumWidth = 10
         Time.Name = "Time"
+        Time.Width = 200
         ' 
         ' Category
         ' 
         Category.HeaderText = "Category"
+        Category.MinimumWidth = 10
         Category.Name = "Category"
+        Category.Width = 200
         ' 
         ' btnBackToDash
         ' 
@@ -202,18 +227,33 @@ Partial Class frmSearchTransactions
         btnBackToDash.FlatStyle = FlatStyle.Flat
         btnBackToDash.Font = New Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnBackToDash.ForeColor = Color.White
-        btnBackToDash.Location = New Point(549, 12)
+        btnBackToDash.Location = New Point(1020, 26)
+        btnBackToDash.Margin = New Padding(6, 6, 6, 6)
         btnBackToDash.Name = "btnBackToDash"
-        btnBackToDash.Size = New Size(239, 75)
+        btnBackToDash.Size = New Size(444, 160)
         btnBackToDash.TabIndex = 13
         btnBackToDash.Text = "Back to Dashboard"
         btnBackToDash.UseVisualStyleBackColor = False
         ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.BackColor = Color.FromArgb(CByte(93), CByte(111), CByte(204))
+        Label7.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label7.ForeColor = Color.White
+        Label7.Location = New Point(802, 715)
+        Label7.Margin = New Padding(6, 0, 6, 0)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(150, 51)
+        Label7.TabIndex = 14
+        Label7.Text = "Results"
+        ' 
         ' frmSearchTransactions
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(13F, 32F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(800, 450)
+        ClientSize = New Size(1486, 960)
+        Controls.Add(Label7)
         Controls.Add(btnBackToDash)
         Controls.Add(dgvResults)
         Controls.Add(btnSearch)
@@ -228,6 +268,7 @@ Partial Class frmSearchTransactions
         Controls.Add(txtSearchDescription)
         Controls.Add(Label2)
         Controls.Add(Label1)
+        Margin = New Padding(6, 6, 6, 6)
         Name = "frmSearchTransactions"
         CType(dgvResults, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
@@ -253,4 +294,5 @@ Partial Class frmSearchTransactions
     Friend WithEvents Time As DataGridViewTextBoxColumn
     Friend WithEvents Category As DataGridViewTextBoxColumn
     Friend WithEvents btnBackToDash As Button
+    Friend WithEvents Label7 As Label
 End Class

@@ -31,6 +31,9 @@ Partial Class frmDashboard
         btnAddIncandExp = New Button()
         lblLogo = New Label()
         pnlDashboard = New Panel()
+        lblAlerts = New Label()
+        lblMonthlyBalance = New Label()
+        lblMonthlyIncome = New Label()
         lstAlerts = New ListBox()
         lblGreetUser = New Label()
         Label3 = New Label()
@@ -38,6 +41,7 @@ Partial Class frmDashboard
         Label1 = New Label()
         lblSavingsGoal = New Label()
         lblMonthlySpending = New Label()
+        lblTotalBalance1 = New Label()
         lblTotalBalance = New Label()
         pnlSidebar.SuspendLayout()
         pnlDashboard.SuspendLayout()
@@ -45,11 +49,12 @@ Partial Class frmDashboard
         ' 
         ' lblWelcome
         ' 
-        lblWelcome.Font = New Font("Segoe UI", 20F, FontStyle.Bold)
+        lblWelcome.Font = New Font("Segoe UI", 20.0F, FontStyle.Bold)
         lblWelcome.ForeColor = Color.FromArgb(CByte(93), CByte(111), CByte(204))
-        lblWelcome.Location = New Point(375, 29)
+        lblWelcome.Location = New Point(696, 62)
+        lblWelcome.Margin = New Padding(6, 0, 6, 0)
         lblWelcome.Name = "lblWelcome"
-        lblWelcome.Size = New Size(391, 43)
+        lblWelcome.Size = New Size(726, 92)
         lblWelcome.TabIndex = 1
         lblWelcome.Text = "Welcome to BudgetBuddy"
         ' 
@@ -64,8 +69,9 @@ Partial Class frmDashboard
         pnlSidebar.Controls.Add(lblLogo)
         pnlSidebar.Dock = DockStyle.Left
         pnlSidebar.Location = New Point(0, 0)
+        pnlSidebar.Margin = New Padding(6)
         pnlSidebar.Name = "pnlSidebar"
-        pnlSidebar.Size = New Size(250, 561)
+        pnlSidebar.Size = New Size(464, 1197)
         pnlSidebar.TabIndex = 2
         ' 
         ' btnNotifyAlerts
@@ -74,9 +80,10 @@ Partial Class frmDashboard
         btnNotifyAlerts.FlatStyle = FlatStyle.Flat
         btnNotifyAlerts.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnNotifyAlerts.ForeColor = Color.White
-        btnNotifyAlerts.Location = New Point(12, 417)
+        btnNotifyAlerts.Location = New Point(22, 890)
+        btnNotifyAlerts.Margin = New Padding(6)
         btnNotifyAlerts.Name = "btnNotifyAlerts"
-        btnNotifyAlerts.Size = New Size(225, 40)
+        btnNotifyAlerts.Size = New Size(418, 85)
         btnNotifyAlerts.TabIndex = 7
         btnNotifyAlerts.Text = "Notify Alerts"
         btnNotifyAlerts.UseVisualStyleBackColor = False
@@ -87,9 +94,10 @@ Partial Class frmDashboard
         btnReportsNDTrends.FlatStyle = FlatStyle.Flat
         btnReportsNDTrends.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnReportsNDTrends.ForeColor = Color.White
-        btnReportsNDTrends.Location = New Point(12, 324)
+        btnReportsNDTrends.Location = New Point(22, 691)
+        btnReportsNDTrends.Margin = New Padding(6)
         btnReportsNDTrends.Name = "btnReportsNDTrends"
-        btnReportsNDTrends.Size = New Size(225, 74)
+        btnReportsNDTrends.Size = New Size(418, 158)
         btnReportsNDTrends.TabIndex = 6
         btnReportsNDTrends.Text = "View Reports and Trends"
         btnReportsNDTrends.UseVisualStyleBackColor = False
@@ -100,9 +108,10 @@ Partial Class frmDashboard
         btnSearchTransactions.FlatStyle = FlatStyle.Flat
         btnSearchTransactions.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnSearchTransactions.ForeColor = Color.White
-        btnSearchTransactions.Location = New Point(12, 199)
+        btnSearchTransactions.Location = New Point(22, 425)
+        btnSearchTransactions.Margin = New Padding(6)
         btnSearchTransactions.Name = "btnSearchTransactions"
-        btnSearchTransactions.Size = New Size(225, 43)
+        btnSearchTransactions.Size = New Size(418, 133)
         btnSearchTransactions.TabIndex = 5
         btnSearchTransactions.Text = "Search Transactions"
         btnSearchTransactions.UseVisualStyleBackColor = False
@@ -113,9 +122,10 @@ Partial Class frmDashboard
         btnSetSavingGoal.FlatStyle = FlatStyle.Flat
         btnSetSavingGoal.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnSetSavingGoal.ForeColor = Color.White
-        btnSetSavingGoal.Location = New Point(12, 267)
+        btnSetSavingGoal.Location = New Point(22, 576)
+        btnSetSavingGoal.Margin = New Padding(6)
         btnSetSavingGoal.Name = "btnSetSavingGoal"
-        btnSetSavingGoal.Size = New Size(225, 40)
+        btnSetSavingGoal.Size = New Size(418, 85)
         btnSetSavingGoal.TabIndex = 4
         btnSetSavingGoal.Text = "Set Saving Goal"
         btnSetSavingGoal.UseVisualStyleBackColor = False
@@ -126,9 +136,10 @@ Partial Class frmDashboard
         btnAddIncandExp.FlatStyle = FlatStyle.Flat
         btnAddIncandExp.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnAddIncandExp.ForeColor = Color.White
-        btnAddIncandExp.Location = New Point(12, 112)
+        btnAddIncandExp.Location = New Point(22, 239)
+        btnAddIncandExp.Margin = New Padding(6)
         btnAddIncandExp.Name = "btnAddIncandExp"
-        btnAddIncandExp.Size = New Size(226, 72)
+        btnAddIncandExp.Size = New Size(420, 154)
         btnAddIncandExp.TabIndex = 3
         btnAddIncandExp.Text = "Add Income and Expenses"
         btnAddIncandExp.UseVisualStyleBackColor = False
@@ -136,17 +147,21 @@ Partial Class frmDashboard
         ' lblLogo
         ' 
         lblLogo.AutoSize = True
-        lblLogo.Font = New Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblLogo.Font = New Font("Segoe UI", 24.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblLogo.ForeColor = Color.White
-        lblLogo.Location = New Point(12, 27)
+        lblLogo.Location = New Point(22, 58)
+        lblLogo.Margin = New Padding(6, 0, 6, 0)
         lblLogo.Name = "lblLogo"
-        lblLogo.Size = New Size(226, 45)
+        lblLogo.Size = New Size(451, 86)
         lblLogo.TabIndex = 1
         lblLogo.Text = "BudgetBuddy"
         ' 
         ' pnlDashboard
         ' 
         pnlDashboard.BackColor = Color.WhiteSmoke
+        pnlDashboard.Controls.Add(lblAlerts)
+        pnlDashboard.Controls.Add(lblMonthlyBalance)
+        pnlDashboard.Controls.Add(lblMonthlyIncome)
         pnlDashboard.Controls.Add(lstAlerts)
         pnlDashboard.Controls.Add(lblGreetUser)
         pnlDashboard.Controls.Add(Label3)
@@ -154,106 +169,151 @@ Partial Class frmDashboard
         pnlDashboard.Controls.Add(Label1)
         pnlDashboard.Controls.Add(lblSavingsGoal)
         pnlDashboard.Controls.Add(lblMonthlySpending)
+        pnlDashboard.Controls.Add(lblTotalBalance1)
         pnlDashboard.Controls.Add(lblTotalBalance)
-        pnlDashboard.Location = New Point(260, 80)
+        pnlDashboard.Location = New Point(483, 171)
+        pnlDashboard.Margin = New Padding(6)
         pnlDashboard.Name = "pnlDashboard"
-        pnlDashboard.Size = New Size(600, 450)
+        pnlDashboard.Size = New Size(1114, 960)
         pnlDashboard.TabIndex = 3
+        ' 
+        ' lblAlerts
+        ' 
+        lblAlerts.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblAlerts.ForeColor = Color.Red
+        lblAlerts.Location = New Point(211, 641)
+        lblAlerts.Margin = New Padding(6, 0, 6, 0)
+        lblAlerts.Name = "lblAlerts"
+        lblAlerts.Size = New Size(480, 120)
+        lblAlerts.TabIndex = 10
+        lblAlerts.Text = "No alerts available."
+        ' 
+        ' lblMonthlyBalance
+        ' 
+        lblMonthlyBalance.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold)
+        lblMonthlyBalance.ForeColor = Color.DarkBlue
+        lblMonthlyBalance.Location = New Point(130, 265)
+        lblMonthlyBalance.Name = "lblMonthlyBalance"
+        lblMonthlyBalance.Size = New Size(502, 64)
+        lblMonthlyBalance.TabIndex = 9
+        lblMonthlyBalance.Text = "Monthly Balance: $0.00"
+        ' 
+        ' lblMonthlyIncome
+        ' 
+        lblMonthlyIncome.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold)
+        lblMonthlyIncome.Location = New Point(132, 343)
+        lblMonthlyIncome.Name = "lblMonthlyIncome"
+        lblMonthlyIncome.Size = New Size(500, 76)
+        lblMonthlyIncome.TabIndex = 8
+        lblMonthlyIncome.Text = "Monthly Income: $0.00"
         ' 
         ' lstAlerts
         ' 
         lstAlerts.FormattingEnabled = True
-        lstAlerts.ItemHeight = 15
-        lstAlerts.Location = New Point(93, 320)
+        lstAlerts.Location = New Point(834, 719)
+        lstAlerts.Margin = New Padding(6)
         lstAlerts.Name = "lstAlerts"
-        lstAlerts.Size = New Size(348, 94)
+        lstAlerts.Size = New Size(34, 100)
         lstAlerts.TabIndex = 7
         ' 
         ' lblGreetUser
         ' 
         lblGreetUser.AutoSize = True
         lblGreetUser.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        lblGreetUser.Location = New Point(51, 32)
+        lblGreetUser.Location = New Point(47, 68)
+        lblGreetUser.Margin = New Padding(6, 0, 6, 0)
         lblGreetUser.Name = "lblGreetUser"
-        lblGreetUser.Size = New Size(71, 30)
+        lblGreetUser.Size = New Size(141, 57)
         lblGreetUser.TabIndex = 6
         lblGreetUser.Text = "Hello,"
         ' 
         ' Label3
         ' 
-        Label3.AutoSize = True
-        Label3.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label3.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label3.ForeColor = Color.Black
-        Label3.Location = New Point(65, 243)
+        Label3.Location = New Point(854, 770)
+        Label3.Margin = New Padding(6, 0, 6, 0)
         Label3.Name = "Label3"
-        Label3.Size = New Size(176, 21)
+        Label3.Size = New Size(65, 18)
         Label3.TabIndex = 5
         Label3.Text = "⚠ Rent due in 3 days"
         ' 
         ' Label2
         ' 
-        Label2.AutoSize = True
-        Label2.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label2.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label2.ForeColor = Color.Black
-        Label2.Location = New Point(65, 280)
+        Label2.Location = New Point(1011, 854)
+        Label2.Margin = New Padding(6, 0, 6, 0)
         Label2.Name = "Label2"
-        Label2.Size = New Size(293, 21)
+        Label2.Size = New Size(42, 34)
         Label2.TabIndex = 4
         Label2.Text = "⚠ Weekly grocery budget exceeded"
         ' 
         ' Label1
         ' 
-        Label1.AutoSize = True
         Label1.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = Color.Black
-        Label1.Location = New Point(30, 203)
+        Label1.Location = New Point(150, 571)
+        Label1.Margin = New Padding(6, 0, 6, 0)
         Label1.Name = "Label1"
-        Label1.Size = New Size(185, 30)
+        Label1.Size = New Size(368, 57)
         Label1.TabIndex = 3
         Label1.Text = "Upcoming Alerts:"
         ' 
         ' lblSavingsGoal
         ' 
-        lblSavingsGoal.AutoSize = True
         lblSavingsGoal.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblSavingsGoal.ForeColor = Color.Black
-        lblSavingsGoal.Location = New Point(30, 163)
+        lblSavingsGoal.Location = New Point(132, 491)
+        lblSavingsGoal.Margin = New Padding(6, 0, 6, 0)
         lblSavingsGoal.Name = "lblSavingsGoal"
-        lblSavingsGoal.Size = New Size(386, 30)
+        lblSavingsGoal.Size = New Size(564, 57)
         lblSavingsGoal.TabIndex = 2
-        lblSavingsGoal.Text = "Savings Goal: $10,000 | Progress: 45%"
+        lblSavingsGoal.Text = "No saving goals available."
         ' 
         ' lblMonthlySpending
         ' 
-        lblMonthlySpending.AutoSize = True
         lblMonthlySpending.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblMonthlySpending.ForeColor = Color.Black
-        lblMonthlySpending.Location = New Point(30, 123)
+        lblMonthlySpending.Location = New Point(132, 419)
+        lblMonthlySpending.Margin = New Padding(6, 0, 6, 0)
         lblMonthlySpending.Name = "lblMonthlySpending"
-        lblMonthlySpending.Size = New Size(305, 30)
+        lblMonthlySpending.Size = New Size(444, 57)
         lblMonthlySpending.TabIndex = 1
-        lblMonthlySpending.Text = "Monthly Spending: $1,320.50"
+        lblMonthlySpending.Text = "Monthly Spending: $0.00"
+        ' 
+        ' lblTotalBalance1
+        ' 
+        lblTotalBalance1.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblTotalBalance1.ForeColor = Color.DarkGreen
+        lblTotalBalance1.Location = New Point(38, 181)
+        lblTotalBalance1.Margin = New Padding(6, 0, 6, 0)
+        lblTotalBalance1.Name = "lblTotalBalance1"
+        lblTotalBalance1.Size = New Size(501, 57)
+        lblTotalBalance1.TabIndex = 0
+        lblTotalBalance1.Text = "Total Balance: $0.00"
         ' 
         ' lblTotalBalance
         ' 
-        lblTotalBalance.AutoSize = True
         lblTotalBalance.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblTotalBalance.ForeColor = Color.DarkGreen
-        lblTotalBalance.Location = New Point(30, 83)
+        lblTotalBalance.Location = New Point(929, 891)
+        lblTotalBalance.Margin = New Padding(6, 0, 6, 0)
         lblTotalBalance.Name = "lblTotalBalance"
-        lblTotalBalance.Size = New Size(250, 30)
+        lblTotalBalance.Size = New Size(69, 10)
         lblTotalBalance.TabIndex = 0
         lblTotalBalance.Text = "Total Balance: $4,500.00"
         ' 
         ' frmDashboard
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(13.0F, 32.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        ClientSize = New Size(884, 561)
+        ClientSize = New Size(1642, 1197)
         Controls.Add(pnlDashboard)
         Controls.Add(pnlSidebar)
         Controls.Add(lblWelcome)
+        Margin = New Padding(6)
         Name = "frmDashboard"
         Text = "Dashboard"
         pnlSidebar.ResumeLayout(False)
@@ -280,5 +340,9 @@ Partial Class frmDashboard
     Friend WithEvents Label2 As Label
     Friend WithEvents lblGreetUser As Label
     Friend WithEvents lstAlerts As ListBox
+    Friend WithEvents lblTotalBalance1 As Label
+    Friend WithEvents lblMonthlyIncome As Label
+    Friend WithEvents lblMonthlyBalance As Label
+    Friend WithEvents lblAlerts As Label
 
 End Class
