@@ -79,4 +79,9 @@ Public Class frmSetSavingGoal
             MessageBox.Show("Error saving savings goal: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+
+    Private Sub btnBackToDash_Click(sender As Object, e As EventArgs) Handles btnBackToDash.Click
+        Me.Hide()
+        frmDashboard.Show()  ' Return to the dashboard after saving 
+    End Sub
 End Class
