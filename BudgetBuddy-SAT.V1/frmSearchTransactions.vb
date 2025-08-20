@@ -1,30 +1,11 @@
-﻿'----------------------------------------------------------
-' File:          frmSearchTransactions.vb
-' Project:       BudgetBuddy
-' Description:   Handles searching of transactions stored in
-'                "Transactions.csv" using filters such as 
-'                description, date range, type, and category.
-' Author:        Nayan
-' Date Created:  30/07/2025
-' Version:       1.0
-'
-' Purpose:
-'   Allows users to search existing transactions stored in a CSV 
-'   file, apply multiple filters, and view the results in a 
-'   DataGridView.
-'
-' Notes:
-'   - Reads CSV file using TextFieldParser to handle quoted 
-'     descriptions with commas.
-'   - Assumes CSV format: Date,Type,Category,Amount,Description
-'   - Filters are optional; leaving them blank includes all results.
-'
-'----------------------------------------------------------
-
+﻿
 Imports System.IO
 Imports Microsoft.VisualBasic.FileIO
 
 Public Class frmSearchTransactions
+    '   Triggered when the Search button is clicked. 
+    '   Loads transactions from "Transactions.csv", applies 
+    '   filters, and displays matching results in dgvResults.
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         ' Clear existing results
         dgvResults.Rows.Clear()
