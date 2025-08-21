@@ -234,4 +234,8 @@ Public Class frmDashboard
         frmNotifyAlerts.Show()
     End Sub
 
+    Private Sub btnReportsNDTrends_Click(sender As Object, e As EventArgs) Handles btnReportsNDTrends.Click
+        Me.Hide()
+        frmReports.Show()
+    End Sub
 End Class

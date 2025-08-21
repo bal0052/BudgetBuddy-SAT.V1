@@ -34,6 +34,7 @@ Partial Class frmAddIncomeExpense
         Label6 = New Label()
         cmbCategory = New ComboBox()
         btnSave = New Button()
+        btnBackToDash = New Button()
         SuspendLayout()
         ' 
         ' Label1
@@ -155,11 +156,25 @@ Partial Class frmAddIncomeExpense
         btnSave.Text = "Add Transaction"
         btnSave.UseVisualStyleBackColor = False
         ' 
+        ' btnBackToDash
+        ' 
+        btnBackToDash.BackColor = Color.FromArgb(CByte(93), CByte(111), CByte(204))
+        btnBackToDash.FlatStyle = FlatStyle.Flat
+        btnBackToDash.Font = New Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnBackToDash.ForeColor = Color.White
+        btnBackToDash.Location = New Point(528, 27)
+        btnBackToDash.Name = "btnBackToDash"
+        btnBackToDash.Size = New Size(239, 75)
+        btnBackToDash.TabIndex = 14
+        btnBackToDash.Text = "Back to Dashboard"
+        btnBackToDash.UseVisualStyleBackColor = False
+        ' 
         ' frmAddIncomeExpense
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
+        Controls.Add(btnBackToDash)
         Controls.Add(btnSave)
         Controls.Add(cmbCategory)
         Controls.Add(Label6)
@@ -190,4 +205,5 @@ Partial Class frmAddIncomeExpense
     Friend WithEvents Label6 As Label
     Friend WithEvents cmbCategory As ComboBox
     Friend WithEvents btnSave As Button
+    Friend WithEvents btnBackToDash As Button
 End Class

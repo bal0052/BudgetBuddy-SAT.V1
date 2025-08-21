@@ -69,4 +69,9 @@ Public Class frmAddIncomeExpense
             MessageBox.Show("Error saving transaction: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+
+    Private Sub btnBackToDash_Click(sender As Object, e As EventArgs) Handles btnBackToDash.Click
+        Me.Hide()  ' Hide this form 
+        frmDashboard.Show()  ' Show the dashboard form  
+    End Sub
 End Class

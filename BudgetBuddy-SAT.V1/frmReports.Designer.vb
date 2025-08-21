@@ -22,14 +22,14 @@ Partial Class frmReports
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New Charting.ChartArea()
-        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New Charting.Legend()
-        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New Charting.Series()
-        Dim Title3 As System.Windows.Forms.DataVisualization.Charting.Title = New Charting.Title()
-        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New Charting.ChartArea()
-        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New Charting.Legend()
-        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New Charting.Series()
-        Dim Title4 As System.Windows.Forms.DataVisualization.Charting.Title = New Charting.Title()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New Charting.Series()
+        Dim Title1 As System.Windows.Forms.DataVisualization.Charting.Title = New Charting.Title()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New Charting.Series()
+        Dim Title2 As System.Windows.Forms.DataVisualization.Charting.Title = New Charting.Title()
         chartSpendingCategory = New Charting.Chart()
         chartIncomeVsExpenses = New Charting.Chart()
         lblTotalExpense = New Label()
@@ -46,42 +46,42 @@ Partial Class frmReports
         ' 
         ' chartSpendingCategory
         ' 
-        ChartArea3.Name = "ChartArea1"
-        chartSpendingCategory.ChartAreas.Add(ChartArea3)
-        Legend3.Name = "Legend1"
-        chartSpendingCategory.Legends.Add(Legend3)
+        ChartArea1.Name = "ChartArea1"
+        chartSpendingCategory.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        chartSpendingCategory.Legends.Add(Legend1)
         chartSpendingCategory.Location = New Point(30, 30)
         chartSpendingCategory.Name = "chartSpendingCategory"
-        Series3.ChartArea = "ChartArea1"
-        Series3.ChartType = Charting.SeriesChartType.Pie
-        Series3.Legend = "Legend1"
-        Series3.Name = "Series1"
-        chartSpendingCategory.Series.Add(Series3)
+        Series1.ChartArea = "ChartArea1"
+        Series1.ChartType = Charting.SeriesChartType.Pie
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        chartSpendingCategory.Series.Add(Series1)
         chartSpendingCategory.Size = New Size(350, 300)
         chartSpendingCategory.TabIndex = 0
-        Title3.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Title3.Name = "Spending by Category"
-        Title3.Text = "Spending by Category"
-        chartSpendingCategory.Titles.Add(Title3)
+        Title1.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Title1.Name = "Spending by Category"
+        Title1.Text = "Spending by Category"
+        chartSpendingCategory.Titles.Add(Title1)
         ' 
         ' chartIncomeVsExpenses
         ' 
-        ChartArea4.Name = "ChartArea1"
-        chartIncomeVsExpenses.ChartAreas.Add(ChartArea4)
-        Legend4.Name = "Legend1"
-        chartIncomeVsExpenses.Legends.Add(Legend4)
+        ChartArea2.Name = "ChartArea1"
+        chartIncomeVsExpenses.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        chartIncomeVsExpenses.Legends.Add(Legend2)
         chartIncomeVsExpenses.Location = New Point(30, 350)
         chartIncomeVsExpenses.Name = "chartIncomeVsExpenses"
-        Series4.ChartArea = "ChartArea1"
-        Series4.Legend = "Legend1"
-        Series4.Name = "Series1"
-        chartIncomeVsExpenses.Series.Add(Series4)
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        chartIncomeVsExpenses.Series.Add(Series2)
         chartIncomeVsExpenses.Size = New Size(700, 250)
         chartIncomeVsExpenses.TabIndex = 1
-        Title4.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Title4.Name = "Spending by Category"
-        Title4.Text = "Monthly Income vs Expenses"
-        chartIncomeVsExpenses.Titles.Add(Title4)
+        Title2.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Title2.Name = "Spending by Category"
+        Title2.Text = "Monthly Income vs Expenses"
+        chartIncomeVsExpenses.Titles.Add(Title2)
         ' 
         ' lblTotalExpense
         ' 
