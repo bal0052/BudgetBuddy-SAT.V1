@@ -85,18 +85,19 @@ Partial Class frmLogin
         ' 
         ' CheckBox1
         ' 
-        CheckBox1.AutoSize = True
-        CheckBox1.Location = New Point(31, 158)
+        CheckBox1.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        CheckBox1.Location = New Point(9, 158)
         CheckBox1.Name = "CheckBox1"
-        CheckBox1.Size = New Size(140, 25)
+        CheckBox1.Size = New Size(180, 41)
         CheckBox1.TabIndex = 5
-        CheckBox1.Text = "Remember Me"
+        CheckBox1.Text = "Remember My Email"
+        CheckBox1.TextAlign = ContentAlignment.MiddleCenter
         CheckBox1.UseVisualStyleBackColor = True
         ' 
         ' btnLogin
         ' 
         btnLogin.AutoSize = True
-        btnLogin.Location = New Point(52, 189)
+        btnLogin.Location = New Point(49, 199)
         btnLogin.Name = "btnLogin"
         btnLogin.Size = New Size(97, 44)
         btnLogin.TabIndex = 4
