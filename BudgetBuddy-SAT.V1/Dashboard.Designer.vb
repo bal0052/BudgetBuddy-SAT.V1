@@ -34,10 +34,7 @@ Partial Class frmDashboard
         lblAlerts = New Label()
         lblMonthlyBalance = New Label()
         lblMonthlyIncome = New Label()
-        lstAlerts = New ListBox()
         lblGreetUser = New Label()
-        Label3 = New Label()
-        Label2 = New Label()
         Label1 = New Label()
         lblSavingsGoal = New Label()
         lblMonthlySpending = New Label()
@@ -154,10 +151,7 @@ Partial Class frmDashboard
         pnlDashboard.Controls.Add(lblAlerts)
         pnlDashboard.Controls.Add(lblMonthlyBalance)
         pnlDashboard.Controls.Add(lblMonthlyIncome)
-        pnlDashboard.Controls.Add(lstAlerts)
         pnlDashboard.Controls.Add(lblGreetUser)
-        pnlDashboard.Controls.Add(Label3)
-        pnlDashboard.Controls.Add(Label2)
         pnlDashboard.Controls.Add(Label1)
         pnlDashboard.Controls.Add(lblSavingsGoal)
         pnlDashboard.Controls.Add(lblMonthlySpending)
@@ -199,15 +193,6 @@ Partial Class frmDashboard
         lblMonthlyIncome.TabIndex = 8
         lblMonthlyIncome.Text = "Monthly Income: $0.00"
         ' 
-        ' lstAlerts
-        ' 
-        lstAlerts.FormattingEnabled = True
-        lstAlerts.ItemHeight = 15
-        lstAlerts.Location = New Point(449, 337)
-        lstAlerts.Name = "lstAlerts"
-        lstAlerts.Size = New Size(20, 49)
-        lstAlerts.TabIndex = 7
-        ' 
         ' lblGreetUser
         ' 
         lblGreetUser.AutoSize = True
@@ -217,26 +202,6 @@ Partial Class frmDashboard
         lblGreetUser.Size = New Size(71, 30)
         lblGreetUser.TabIndex = 6
         lblGreetUser.Text = "Hello,"
-        ' 
-        ' Label3
-        ' 
-        Label3.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label3.ForeColor = Color.Black
-        Label3.Location = New Point(460, 361)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(35, 8)
-        Label3.TabIndex = 5
-        Label3.Text = "⚠ Rent due in 3 days"
-        ' 
-        ' Label2
-        ' 
-        Label2.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label2.ForeColor = Color.Black
-        Label2.Location = New Point(544, 400)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(23, 16)
-        Label2.TabIndex = 4
-        Label2.Text = "⚠ Weekly grocery budget exceeded"
         ' 
         ' Label1
         ' 
@@ -319,10 +284,7 @@ Partial Class frmDashboard
     Friend WithEvents lblTotalBalance As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents lblSavingsGoal As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
     Friend WithEvents lblGreetUser As Label
-    Friend WithEvents lstAlerts As ListBox
     Friend WithEvents lblTotalBalance1 As Label
     Friend WithEvents lblMonthlyIncome As Label
     Friend WithEvents lblMonthlyBalance As Label

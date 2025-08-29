@@ -22,14 +22,14 @@ Partial Class frmReports
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New Charting.Series()
-        Dim Title1 As System.Windows.Forms.DataVisualization.Charting.Title = New Charting.Title()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New Charting.Series()
-        Dim Title2 As System.Windows.Forms.DataVisualization.Charting.Title = New Charting.Title()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New Charting.ChartArea()
+        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New Charting.Legend()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New Charting.Series()
+        Dim Title3 As System.Windows.Forms.DataVisualization.Charting.Title = New Charting.Title()
+        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New Charting.ChartArea()
+        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New Charting.Legend()
+        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New Charting.Series()
+        Dim Title4 As System.Windows.Forms.DataVisualization.Charting.Title = New Charting.Title()
         chartSpendingCategory = New Charting.Chart()
         chartIncomeVsExpenses = New Charting.Chart()
         lblTotalExpense = New Label()
@@ -40,48 +40,49 @@ Partial Class frmReports
         Label2 = New Label()
         dtpFrom = New DateTimePicker()
         btnExportToCSV = New Button()
+        btnBackToDash = New Button()
         CType(chartSpendingCategory, ComponentModel.ISupportInitialize).BeginInit()
         CType(chartIncomeVsExpenses, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' chartSpendingCategory
         ' 
-        ChartArea1.Name = "ChartArea1"
-        chartSpendingCategory.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        chartSpendingCategory.Legends.Add(Legend1)
+        ChartArea3.Name = "ChartArea1"
+        chartSpendingCategory.ChartAreas.Add(ChartArea3)
+        Legend3.Name = "Legend1"
+        chartSpendingCategory.Legends.Add(Legend3)
         chartSpendingCategory.Location = New Point(30, 30)
         chartSpendingCategory.Name = "chartSpendingCategory"
-        Series1.ChartArea = "ChartArea1"
-        Series1.ChartType = Charting.SeriesChartType.Pie
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        chartSpendingCategory.Series.Add(Series1)
+        Series3.ChartArea = "ChartArea1"
+        Series3.ChartType = Charting.SeriesChartType.Pie
+        Series3.Legend = "Legend1"
+        Series3.Name = "Series1"
+        chartSpendingCategory.Series.Add(Series3)
         chartSpendingCategory.Size = New Size(350, 300)
         chartSpendingCategory.TabIndex = 0
-        Title1.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Title1.Name = "Spending by Category"
-        Title1.Text = "Spending by Category"
-        chartSpendingCategory.Titles.Add(Title1)
+        Title3.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Title3.Name = "Spending by Category"
+        Title3.Text = "Spending by Category"
+        chartSpendingCategory.Titles.Add(Title3)
         ' 
         ' chartIncomeVsExpenses
         ' 
-        ChartArea2.Name = "ChartArea1"
-        chartIncomeVsExpenses.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        chartIncomeVsExpenses.Legends.Add(Legend2)
+        ChartArea4.Name = "ChartArea1"
+        chartIncomeVsExpenses.ChartAreas.Add(ChartArea4)
+        Legend4.Name = "Legend1"
+        chartIncomeVsExpenses.Legends.Add(Legend4)
         chartIncomeVsExpenses.Location = New Point(30, 350)
         chartIncomeVsExpenses.Name = "chartIncomeVsExpenses"
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        chartIncomeVsExpenses.Series.Add(Series2)
+        Series4.ChartArea = "ChartArea1"
+        Series4.Legend = "Legend1"
+        Series4.Name = "Series1"
+        chartIncomeVsExpenses.Series.Add(Series4)
         chartIncomeVsExpenses.Size = New Size(700, 250)
         chartIncomeVsExpenses.TabIndex = 1
-        Title2.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Title2.Name = "Spending by Category"
-        Title2.Text = "Monthly Income vs Expenses"
-        chartIncomeVsExpenses.Titles.Add(Title2)
+        Title4.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Title4.Name = "Spending by Category"
+        Title4.Text = "Monthly Income vs Expenses"
+        chartIncomeVsExpenses.Titles.Add(Title4)
         ' 
         ' lblTotalExpense
         ' 
@@ -159,11 +160,24 @@ Partial Class frmReports
         btnExportToCSV.Text = "Export to CSV"
         btnExportToCSV.UseVisualStyleBackColor = False
         ' 
+        ' btnBackToDash
+        ' 
+        btnBackToDash.BackColor = Color.FromArgb(CByte(93), CByte(111), CByte(204))
+        btnBackToDash.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnBackToDash.ForeColor = Color.White
+        btnBackToDash.Location = New Point(641, 7)
+        btnBackToDash.Name = "btnBackToDash"
+        btnBackToDash.Size = New Size(191, 54)
+        btnBackToDash.TabIndex = 10
+        btnBackToDash.Text = "Back to Dashboard"
+        btnBackToDash.UseVisualStyleBackColor = False
+        ' 
         ' frmReports
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(844, 634)
+        Controls.Add(btnBackToDash)
         Controls.Add(btnExportToCSV)
         Controls.Add(dtpFrom)
         Controls.Add(Label2)
@@ -193,4 +207,5 @@ Partial Class frmReports
     Friend WithEvents Label2 As Label
     Friend WithEvents dtpFrom As DateTimePicker
     Friend WithEvents btnExportToCSV As Button
+    Friend WithEvents btnBackToDash As Button
 End Class

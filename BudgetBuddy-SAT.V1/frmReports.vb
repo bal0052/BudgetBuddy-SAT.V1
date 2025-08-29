@@ -118,4 +118,8 @@ Public Class frmReports
         End If
     End Sub
 
+    Private Sub btnBackToDash_Click(sender As Object, e As EventArgs) Handles btnBackToDash.Click
+        Me.Hide()
+        frmDashboard.Show()
+    End Sub
 End Class
